@@ -1,0 +1,210 @@
+CREATE TABLE users (
+    teacher_id INT(11) NOT NULL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    usertype VARCHAR(100) NOT NULL DEFAULT 'user',
+    date_created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
+)
+
+CREATE TABLE program (
+    id INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    prog_name VARCHAR(100) NOT NULL
+)
+
+INSERT INTO program (prog_name) VALUES ("Bachelor of Science in Information System (BSIS)")
+
+CREATE TABLE course (
+    id INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    course_code VARCHAR(100) NOT NULL, 
+    course_name VARCHAR(100) NOT NULL, 
+    prog VARCHAR(100) NOT NULL
+)
+
+INSERT INTO course (course_code, course_name, prog) VALUES ("IS104", "System Analysis and Design", "Bachelor of Science in Information System (BSIS)")
+
+CREATE TABLE yANDsec (
+    id INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    program VARCHAR(100) NOT NULL, 
+    course VARCHAR(100) NOT NULL,
+    coursecode VARCHAR(100) NOT NULL,
+    year VARCHAR(100) NOT NULL, 
+    section VARCHAR(100) NOT NULL
+)
+
+CREATE TABLE teachers (
+    teacher_id INT(50)  NOT NULL PRIMARY KEY,
+    teacher_fname VARCHAR(100) NOT NULL, 
+    teacher_mname VARCHAR(100) NULL,
+    teacher_lname VARCHAR(100) NOT NULL,
+    assigned_program VARCHAR(100) NOT NULL, 
+    assigned_course VARCHAR(100) NOT NULL, 
+    assigned_section VARCHAR(100) NOT NULL
+)
+
+CREATE TABLE schedule (
+    teacher_id INT(50)  NOT NULL PRIMARY KEY,
+    assigned_program VARCHAR(100) NOT NULL, 
+    assigned_course VARCHAR(100) NOT NULL, 
+    assigned_section VARCHAR(100) NOT NULL, 
+    assigned_sched TIME NOT NULL, 
+    FOREIGN KEY (teacher_id) REFERENCES teachers(teacher_id)
+)
+
+CREATE TABLE students (
+    stud_id INT(11) NOT NULL PRIMARY KEY,
+    stud_img VARCHAR(200) NOT NULL,
+    stud_fname VARCHAR(100) NOT NULL,
+    stud_mname VARCHAR(100) NULL, 
+    stud_lname VARCHAR(100) NOT NULL, 
+    stud_DOB DATE NOT NULL,
+    stud_date_enrolled DATE NOT NULL,
+    date_created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_modified DATETIME NOT NULL
+)
+
+CREATE TABLE stud_image (
+    stud_id INT(11) NOT NULL PRIMARY KEY, 
+    stud_img VARCHAR(200) NOT NULL, 
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id)
+)
+
+--------------
+CREATE TABLE `stud_image` (
+  `stud_id` int(11) NOT NULL PRIMARY KEY, 
+  `stud_img` longblob NOT NULL,
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  FOREIGN KEY (stud_id) REFERENCES students(stud_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+or 
+
+CREATE TABLE `stud_image` (
+ `stud_id` int(11) NOT NULL PRIMARY KEY,
+ `stud_img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+ `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1',
+ FOREIGN KEY (`stud_id`) REFERENCES students(stud_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-------------
+
+CREATE TABLE stud_address (
+    stud_id INT(11) NOT NULL PRIMARY KEY,
+    stud_house_num VARCHAR(100) NOT NULL,
+    stud_house_st VARCHAR(100) NOT NULL,
+    stud_house_brgy VARCHAR(100) NOT NULL, 
+    stud_house_city VARCHAR(100) NOT NULL, 
+    stud_house_zip INT(5) NOT NULL,
+    stud_house_prov VARCHAR(100) NOT NULL,
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id)
+)
+
+CREATE TABLE stud_class (
+    class_id INT AUTO_INCREMENT PRIMARY KEY,
+    stud_id INT(11) NOT NULL,
+    stud_prog VARCHAR(100) NOT NULL,
+    stud_course VARCHAR(100) NOT NULL, 
+    stud_sec VARCHAR(100) NOT NULL,
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id)
+)
+
+CREATE TABLE stud_class (
+    class_id INT AUTO_INCREMENT PRIMARY KEY,
+    stud_id INT(11) NOT NULL,
+    stud_prog VARCHAR(100) NOT NULL,
+    stud_course VARCHAR(100) NOT NULL, 
+    stud_sec VARCHAR(100) NOT NULL,
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id), 
+    FOREIGN KEY (stud_prog) REFERENCES program(prog_name),
+    FOREIGN KEY (stud_course) REFERENCES course(course_name),
+    FOREIGN KEY (stud_sec) REFERENCES yandsec(year)
+)
+
+CREATE TABLE stud_class (
+    class_id INT AUTO_INCREMENT PRIMARY KEY,
+    stud_id INT(11) NOT NULL,
+    stud_prog VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES program(prog_name),
+    stud_course VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES course(course_name), 
+    stud_sec VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES yandsec(year),
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id)
+)
+
+
+CREATE TABLE qrcode (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    stud_id INT(11) NOT NULL,
+    qrimage BLOB NOT NULL,
+    date_created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id)
+)
+
+
+CREATE TABLE `loginlogs` (
+    `id` int(11) NOT NULL,
+    `IpAddress` varbinary(16) NOT NULL,
+    `TryTime` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+SELECT students.stud_id, stud_fname, stud_mname, stud_lname, stud_DOB, stud_date_enrolled, stud_image.file_name, stud_class.stud_prog, stud_class.stud_course, stud_class.stud_sec, qrcode.qrimage
+FROM students
+INNER JOIN stud_image
+ON students.stud_id = stud_image.stud_id
+INNER JOIN stud_class
+ON students.stud_id = stud_class.stud_id
+INNER JOIN qrcode 
+ON students.stud_id = qrcode.stud_id
+
+SELECT teachers.teacher_id, teacher_fname, teacher_mname, teacher_lname, teachers.assigned_program, teachers.assigned_course, teachers.assigned_section, schedule.assigned_sched 
+FROM teachers INNER JOIN schedule ON teachers.teacher_id = schedule.teacher_id;
+
+
+CREATE TABLE entrance_log (
+    stud_id INT NOT NULL PRIMARY KEY, 
+    logdate DATE, 
+    logtime TIME
+)
+
+CREATE TABLE timein (/
+    stud_id INT NOT NULL PRIMARY KEY, 
+    course_code VARCHAR(100) NOT NULL,
+    log_date DATE, 
+    log_time TIME,
+    status VARCHAR(50) NOT NULL,
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id) 
+)
+
+CREATE TABLE timeout (/
+    stud_id INT NOT NULL PRIMARY KEY, 
+    course_code VARCHAR(100) NOT NULL,
+    log_date DATE, 
+    log_time TIME,
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id)
+)
+
+CREATE TABLE status (   
+    stud_id INT NOT NULL PRIMARY KEY, 
+    course_code VARCHAR(100) NOT NULL,
+    log_date DATE, 
+    log_time TIME,
+    stat VARCHAR(50) NOT NULL DEFAULT 'Cutting',
+    FOREIGN KEY (course_code) REFERENCES course(course_code)
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id)
+)
+
+CREATE TABLE status (   
+    stud_id INT NOT NULL PRIMARY KEY, 
+    course VARCHAR(100) NOT NULL,
+    log_date DATE, 
+    log_time TIME,
+    stat VARCHAR(50) NOT NULL DEFAULT 'Cutting',
+    FOREIGN KEY (stud_id) REFERENCES students(stud_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+$q2 = mysqli_query($db, "SELECT stud_course, course.course_code 
+                                FROM stud_class
+                                INNER JOIN course
+                                ON stud_class.stud_course = course.course_name");  

@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Roboto+Mono:wght@300&display=swap');
+*{
+    margin:0;
+    padding:0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background:#EBF3FE;
+}
+
+nav{
+    position:sticky;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    background: #060D1D;
+    width: 90px;
+    overflow: hidden;
+    transition: 1s;
+    
+}
+
+.logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 0;
+}
+.logo img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.logo span{
+    font-weight: bold;
+    padding-left: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.logo:hover{
+    background: #060D1D;
+}
+
+nav a{
+    position: relative;
+    color: white;
+    font-size: 14px;
+    display: table;
+    width: 320px;
+    padding: 10px;
+}
+nav .fas{
+    position:relative;
+    width: 70px;
+    height:40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+}
+.nav-item{
+    position:relative;
+    top: 12px;
+    margin-left: 10px;  
+}
+a:hover{
+    background: gray;
+}
+nav:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+}
+  
+.logout{
+    position:absolute;
+    bottom: 0;
+}
+
+.container{
+    position: relative;
+    display:flex;
+}
+
+.main{
+    position:relative;
+    padding:50px;
+    width: 100%;
+}
+
+hr {
+    border: 1px solid blue;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+.sec1 .input-group {
+    width: 100%;
+    margin: 10px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.submit-btn {
+    color: white;
+    width: 100%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background-color: blue;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    size: 20px; 
+}
+
+/*View Program and Course*/
+.view{
+    margin-top: 20px;
+}
+.view-list{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+
+table thead tr{
+    color: black;
+    background: yellow;
+    text-align: left;
+    font-weight: bold;
+}
+
+.table th, .table td{
+    padding: 12px 15px;
+}
+
+.table tbody tr{
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+
+
+
+.error {
+    float: center;
+    width: 120%;
+    margin: 0px auto;
+    margin-left: -30px;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: #a94442;
+    background: #f2dede;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.success {
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
+}

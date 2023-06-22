@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Roboto+Mono:wght@300&display=swap');
+*{
+    margin:0;
+    padding:0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background:#EBF3FE;
+}
+
+nav{
+    position:sticky;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    background: #060D1D;
+    width: 90px;
+    overflow: hidden;
+    transition: 1s;
+    
+}
+
+.logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 0;
+}
+.logo img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.logo span{
+    font-weight: bold;
+    padding-left: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+.logo:hover{
+    background: #060D1D;
+}
+a{
+    position: relative;
+    color: white;
+    font-size: 14px;
+    display: table;
+    width: 320px;
+    padding: 10px;
+}
+nav .fas{
+    position:relative;
+    width: 70px;
+    height:40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+    
+    
+}
+.nav-item{
+    position:relative;
+    top: 12px;
+    margin-left: 10px;  
+}
+a:hover{
+    background: gray;
+}
+nav:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+}
+.logout{
+    position:absolute;
+    bottom: 0;
+}
+
+.container{
+    display:flex;
+}
+
+
+
+  /*Attendance List section  */
+.Record{
+    margin-top:15px;
+    text-transform: capitalize;
+    right: 0;
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    
+}
+
+
+.section_top{
+    position:relative;
+    width: 100%;
+    padding-bottom: 5px;
+    margin-left:3%;
+}
+
+
+.heading{
+    position:relative;
+    background-color: #232f3e;
+    box-shadow: 0px 1px 2px #232f3e;
+}
+.Filters{
+    position:relative;
+    font-weight: bold;
+    margin-top:2px;
+    margin-bottom: 2%;
+    
+}
+
+.tbcontainer{
+    padding:20px;
+    position:relative;
+    margin: 30px;
+    background-color: #fff;
+    box-shadow: 0px 1px 2px #232f3e;
+    border-radius: 5px;
+    
+}
+table{
+    
+    position: relative;
+    width: 100%;
+    border-collapse:collapse;
+    border-spacing: 0px; 
+    border: 2px black;
+}
+table th{
+    position:relative; 
+    top: 0px;
+    border-radius: 3px;
+    padding-bottom: 5px;
+    background-color: yellow;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px; 
+    border-color: 2px orange;
+   
+}
+table th, table td {
+    
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+table td {
+    text-align: left;
+    font-size: 15px;
+    padding-left: 20px;
+    
+}

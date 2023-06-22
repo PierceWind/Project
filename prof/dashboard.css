@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Roboto+Mono:wght@300&display=swap');
+*{
+    margin:0;
+    padding:0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background:#EBF3FE;
+}
+
+nav{
+    position:sticky;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    background: #060D1D;
+    width: 90px;
+    overflow: hidden;
+    transition: 1s;
+    
+}
+
+.logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 0;
+}
+.logo img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.logo span{
+    font-weight: bold;
+    padding-left: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+.logo:hover{
+    background: #060D1D;
+}
+a{
+    position: relative;
+    color: white;
+    font-size: 14px;
+    display: table;
+    width: 320px;
+    padding: 10px;
+}
+nav .fas{
+    position:relative;
+    width: 70px;
+    height:40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+    
+    
+    
+}
+.nav-item{
+    position:relative;
+    top: 12px;
+    margin-left: 15px;  
+}
+a:hover{
+    background: gray;
+}
+nav:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+}
+.logout{
+    position:absolute;
+    bottom: 0;
+}
+
+.container{
+    display:flex;
+}
+
+
+
+.main{
+    position:relative;
+    padding:20px;
+    width: 100%;
+}
+.main-top{
+    display: flex;
+    width: 100%;
+}
+
+.bottom-box{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+.top-box{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+}
+
+.boxes{
+    border-top: 5px solid blue;
+    position: relative;
+    background: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  
+}
+.graphcal{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: calc(35% - 15px) calc(65% - 15px);
+    grid-gap: 30px;
+
+}
+.cal, 
+.bar{
+    position: relative;
+    background: white;
+    width: 100%;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    --webkit-column-break-inside: avoid;
+}
+
+.cal, 
+.bar h3{
+    font-weight: bold;
+    text-align:left;
+}
+.cal header{
+    display: flex;
+    align-items:stretch;
+    justify-content:space-between;
+    padding: 10px 30px 10px;
+}
+header .current-date{
+    font-size:  1.45rem;
+    font-weight: 500;
+}
+.icons i {
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    background: #f2f2f2 ;
+}
+.icons i:hover{
+    background: gray;
+}
+.calendar{
+    padding: 5px;
+}
+.calendar .days{
+    margin-bottom: 15px;
+}
+.calendar .weeks li{
+    font-weight: 600;
+}
+.calendar .days li{
+    z-index: 1;
+    font-weight: 500;
+    margin-top: 30px;
+    cursor: pointer;
+}
+.days li.inactive{
+    color: #aaa;
+}
+.days li.active{
+    color: #fff;
+}
+.days li.active::before{
+    background: blue;
+}
+.calendar ul {
+    display:flex;
+    list-style: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.calendar ul li{
+    position: relative;
+    width: calc(100%/7);
+}
+.calendar .days li::before{
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50% ,-50%);
+    
+}
+
+.days li:hover::before{
+    background: #f2f2f2;
+}
+.days li:not(.active):hover::before{
+    background: #f2f2f2;
+  }
+
+@media (max-width:991px)
+{
+    .graphcal,
+    .top-box,
+    .bottom-box
+    {
+        grid-template-columns:1fr;
+        height:auto;
+    }  
+    
+}

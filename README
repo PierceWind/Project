@@ -1,0 +1,85 @@
+GREETINGS! This program is for educational purposes only. 
+    This is a partial requirement of our course System Analysis and Design. 
+    This project was coded starting from November 01, 2022 until Dec 12, 2022. 
+    Through our rigor and determination, we made this system as a first timer. 
+    The languages used are the following: js and php that includes html and css. 
+
+ALL ABOUT THE PROJECT 
+    The group aspire to create a system that will need less work in terms of checking an attendance. 
+    They propose to build a system  titled Student Attendance Monitoring System using QR Code
+        for their own school, DFCAMLP-IT Campus to check the attendance of students once they enter 
+        the school premises and their classes without much  hassle and to generat a report having 
+        accurate, precise, and reliable data. 
+    The programmers will be happy at your advices and suggestions regarding their system. 
+    They believed that no perfect system exist but doesn't mean it will be excluded from innovation 
+        and development. They hope that their system will be upgraded and debugged. 
+    
+    SYSTEM FEATURES: 
+     - Login & Register an Account as an admin and user 
+     - Add, Modify, and Delete Record as an admin 
+     - Show Student Attendance Record per  users / professors 
+     - Generate QR 
+     - Scan QR 
+     - Insert Attendance 
+     - Generate Report can be downloaded as xls file 
+    
+    NEEDS MODIFICATION: 
+    - Graphical barchart asociated with the calendar 
+    - Multifilter 
+    - Security 
+
+THE PROGRAMMERS 
+ - Abalos, Jerusa Mae P. 
+ - Villarosa, Jennylyn 
+
+ THE DOCUMENTARIST 
+ - Brizuela, Kevin S. 
+ - Bagobe, Reyster G. 
+
+ 
+To be able to run our system, please download and install the following: 
+ - node at nodejs.org 
+ - xampp 
+    For xampp, in the phpmyadmin password, please set up the password as 'xoxad'
+    and import the sql query stored in database folder here named 'project_sql'. 
+
+After installing, please run these commands one at a time: 
+ - npm install jquery
+ - npm install -g yarn 
+ - mkdir php-qr-code-generator
+ - mkdir php-qr-code-generator/src/QR/Image
+ - mkdir php-qr-code-generator/src/QR/Options
+ - mkdir php-qr-code-generator/public/img
+ - cd php-qr-code-generator
+ - composer require chillerlan/php-qrcode
+ - node -v 
+ - npm -v 
+ - npx -v 
+ - yarn -v
+
+NOTE: 
+    Please run the system with an Internet connection. 
+    The programmers use some bootstrap and cdn that can be access only over the Internet.
+
+AFTER ALL: 
+    copy this URL to your browser:
+    localhost/project/login/login.php
+
+ADMIN ACCOUNT 
+    username: admin
+    password: mypassword
+
+PROFESSOR'S ACCOUNT 
+    1.
+    username: richman 
+    password: xoxad
+
+    2.
+    username: jave
+    password: xoxad
+
+    NOTE: You may register another professor account after you store the professor 
+        information through logging as an admin
+
+
+HOPE YOU'LL HAVE HAPPY BROWSE!

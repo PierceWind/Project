@@ -1,0 +1,33 @@
+mkdir php-qr-code-generator
+mkdir php-qr-code-generator/src/QR/Image
+mkdir php-qr-code-generator/src/QR/Options
+mkdir php-qr-code-generator/public/img
+
+cd php-qr-code-generator
+
+---
+composer require chillerlan/php-qrcode
+
+
+
+-----------------scanner-----------
+
+npm install --save instascan
+
+npm install -g npm@9.1.2
+
+npm fund
+
+npm install jquery
+
+npm install -g yarn 
+
+//const Instascan = require('instascan');
+
+node -v 
+
+npm -v 
+
+npx -v 
+
+yarn -v
