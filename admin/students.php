@@ -39,9 +39,6 @@ $targetDir = "uploads/";
 $path = '../studqr/';
 
 
-
-
-
 //ADD STUDENT 
 if ((isset($_POST['add_student'])) && !empty($_FILES["stud_img"]["name"])) {
     //receive all input values from the form
