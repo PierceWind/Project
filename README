@@ -11,22 +11,22 @@ ALL ABOUT THE PROJECT
         the school premises and their classes without much  hassle and to generat a report having 
         accurate, precise, and reliable data. 
     The programmers will be happy at your advices and suggestions regarding their system. 
-    They believed that no perfect system exist but doesn't mean it will be excluded from innovation 
+    They believed that no perfect system exist and doesn't mean it will be excluded from innovation 
         and development. They hope that their system will be upgraded and debugged. 
     
     SYSTEM FEATURES: 
      - Login & Register an Account as an admin and user 
-     - Add, Modify, and Delete Record as an admin 
+     - Add, Modify, and Delete Record as an admin (CRUD)
      - Show Student Attendance Record per  users / professors 
      - Generate QR 
      - Scan QR 
      - Insert Attendance 
      - Generate Report can be downloaded as xls file 
     
-    NEEDS MODIFICATION: 
-    - Graphical barchart asociated with the calendar 
+    NEEDS MODIFICATION (WEAKNESSES): 
+    - Graphical barchart associated with the calendar 
     - Multifilter 
-    - Security 
+    - Security (md5 encryption)
 
 THE PROGRAMMERS 
  - Abalos, Jerusa Mae P. 
